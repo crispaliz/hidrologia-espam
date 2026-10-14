@@ -1,0 +1,18 @@
+Hidrología (1CIA-502) · Prácticas en Colab
+Copyright (c) 2026 Cristian Omar Paliz Acosta
+
+Los cuadernos, textos y figuras de este repositorio se distribuyen bajo la
+licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0
+Internacional (CC BY-NC-SA 4.0):
+https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es
+
+Se permite usarlos, copiarlos y adaptarlos con fines educativos no comerciales,
+citando al autor. Las versiones adaptadas que se compartan deben llevar esta
+misma licencia. El uso comercial requiere autorización escrita del autor.
+
+Los datos que usan los cuadernos provienen de https://github.com/crispaliz/datos-manabi
+y tienen su propia licencia.
+
+Cita sugerida:
+Paliz Acosta, C. (2026). Hidrología (1CIA-502): prácticas en Colab [Material
+didáctico]. ESPAM MFL. https://github.com/crispaliz/hidrologia-espam

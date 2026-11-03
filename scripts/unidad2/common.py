@@ -33,7 +33,8 @@ if USAR_MI_CUENCA:
     cuenca = gpd.read_file(nombre, layer="cuenca").to_crs(32717)
 else:
     cuenca = gpd.read_file(f"{DATOS}/cuencas_oficiales.geojson").query("cuenca == @CUENCA").to_crs(32717)
-CU = cuenca.union_all(); A_km2 = CU.area / 1e6
+CU = cuenca.union_all() if hasattr(cuenca, "union_all") else cuenca.unary_union   # compatible con geopandas < 1.0
+A_km2 = CU.area / 1e6
 # Pesos de Thiessen, igual que en el paso 1
 gest = gpd.GeoDataFrame(EST, geometry=gpd.points_from_xy(EST.x_utm, EST.y_utm), crs=32717)
 usa = gest[gest.within(CU) | (gest.distance(CU) <= RADIO_KM * 1000)]
@@ -91,6 +92,7 @@ if EQ and EQ in COR:
     ORIGEN_Q = f"GEOGloWS corregido en {EQ} ({ESTQ.loc[EQ, 'calidad_correccion']}) llevado a la salida"
 else:
     Q_all = s_sal.copy(); ORIGEN_Q = "GEOGloWS sin corregir en la salida (no hay estación con corrección aceptable)"
+    print("⚠️  Caudal SIN corregir: GEOGloWS puede sobrestimar o subestimar mucho los picos de tu río. Compara con cautela y decláralo.")
 f_area = A_km2 / SAL.loc[CUENCA, "area_oficial_km2"]
 Q_all = (Q_all * f_area).rename("Q_m3s")
 Qd = Q_all.loc[f"{PERIODO[0]}-01-01":f"{PERIODO[1]}-12-31"].dropna()

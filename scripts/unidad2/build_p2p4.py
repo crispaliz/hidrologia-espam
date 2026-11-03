@@ -203,6 +203,10 @@ ax.set_ylabel("Caudal medio diario máximo del año (m³/s)")
 ax.set_title(f"Crecidas anuales en la salida de {CUENCA} ({PERIODO[0]}–{PERIODO[1]}) y caudales de diseño", fontweight="bold")
 plt.tight_layout(); plt.savefig("salidas/P2p4_03_crecidas_vs_diseno.png", dpi=150); plt.show()
 print(f"Mayor crecida diaria del periodo: {Qmax.max():.0f} m³/s en {Qmax.idxmax()} · factor de Fuller {FULLER:.2f}")
+q100 = QP.set_index("T (años)")["Qp (m³/s)"].max()
+if Qmax.max() * FULLER > q100:
+    print(f"⚠️  La mayor crecida registrada (≈ {Qmax.max() * FULLER:.0f} m³/s instantáneos) supera tu Qp de {max(T_DISENO)} años ({q100:.0f} m³/s): "
+          "revisa tc y CN, o la calidad del caudal del modelo, y discútelo en 2.6.")
 ''')
 
 md("## 10 · Expediente del capítulo 2 y descarga")

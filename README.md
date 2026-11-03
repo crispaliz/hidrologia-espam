@@ -36,6 +36,12 @@ el cuaderno va a calcular, y al final explica la diferencia.
 
 El aforo con flotadores (21 de octubre) se calcula a mano en la hoja de campo y se copia en la celda 1 del cuaderno de cierre.
 
+### Unidad II · Hidrología superficial → Capítulo 2: precipitación y escorrentía
+
+| Práctica | Tema | Produce | Cuaderno |
+|---|---|---|---|
+| 2 · paso 1 | Precipitación media 1995–2014: media aritmética, Thiessen e isoyetas; serie anual y hietogramas | `expediente_P2p1_….csv`, pesos y polígonos de Thiessen, figuras `P2p1_…` | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/crispaliz/hidrologia-espam/blob/main/notebooks/P2_paso1_precipitacion_media.ipynb) |
+
 ## El expediente de tu cuenca
 
 Cada práctica guarda sus resultados en un mismo formato (`capitulo, apartado, campo, valor, unidad, fuente`).
@@ -56,6 +62,7 @@ Los expedientes del curso forman el *Compendio hidrológico de cuencas de Manab�
 - **Caudales de Manabí** (los usa el paso 3): observados de las estaciones del INAMHI (anuarios hidrológicos
   1993–2013), simulación de GEOGloWS 1980–2023 y su versión corregida, y curvas de gasto por estación, en
   [datos-manabi/caudales](https://github.com/crispaliz/datos-manabi/tree/main/caudales).
+- **Lluvia diaria** 1964–2018 de 80 estaciones del INAMHI (la usa la Práctica 2): [datos-manabi/precipitacion](https://github.com/crispaliz/datos-manabi/tree/main/precipitacion).
 - Relieve, cuencas, cauces y estaciones de lluvia: [datos-manabi](https://github.com/crispaliz/datos-manabi).
 - `datos/aforos_ejemplo.csv` y `datos/niveles_diarios_ejemplo.csv`: datos **ilustrativos** para el ejercicio
   de clase de la curva de gasto (sesión del 27 de octubre). No son de ninguna cuenca.

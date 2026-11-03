@@ -41,6 +41,15 @@ El aforo con flotadores (21 de octubre) se calcula a mano en la hoja de campo y 
 | Práctica | Tema | Produce | Cuaderno |
 |---|---|---|---|
 | 2 · paso 1 | Precipitación media 1995–2014: media aritmética, Thiessen e isoyetas; serie anual y hietogramas | `expediente_P2p1_….csv`, pesos y polígonos de Thiessen, figuras `P2p1_…` | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/crispaliz/hidrologia-espam/blob/main/notebooks/P2_paso1_precipitacion_media.ipynb) |
+| 2 · paso 2 | Lluvia de diseño: máximos anuales 1995–2014, Gumbel (P₁₀ a mano), Kolmogorov–Smirnov, curvas IDF y hietogramas de 24 h para T = 10, 25 y 100 años | `expediente_P2p2_….csv`, hietogramas de diseño, tabla IDF | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/crispaliz/hidrologia-espam/blob/main/notebooks/P2_paso2_lluvia_diseno.ipynb) |
+| 2 · paso 3 | Número de curva ponderado según suelos y cobertura (CN a mano), AMC I–III y lluvia efectiva para T = 10, 25 y 100 años | `expediente_P2p3_….csv`, mapa de CN, hietogramas efectivos | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/crispaliz/hidrologia-espam/blob/main/notebooks/P2_paso3_numero_curva.ipynb) |
+| 2 · paso 4 | Caudal pico e hidrograma triangular **resueltos a mano** en la [hoja de cálculo](hojas/P2_paso4_hoja_hidrograma.pdf); el cuaderno revisa y compara con convolución, método racional y crecidas registradas | `expediente_P2p4_….csv`, hidrogramas | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/crispaliz/hidrologia-espam/blob/main/notebooks/P2_paso4_hidrograma_triangular.ipynb) |
+| 2 · paso 5 | Balance hídrico anual y mensual (P − Q), coeficiente de escorrentía y señal de El Niño 1982–83, 1997–98 y 2015–16; lectura de la bitácora | `expediente_P2p5_….csv`, balance mensual | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/crispaliz/hidrologia-espam/blob/main/notebooks/P2_paso5_balance_hidrico.ipynb) |
+| Cierre | Ficha de síntesis del capítulo 2 y expediente acumulado de la cuenca | `expediente_<cuenca>_<estudiante>.csv`, ficha PDF | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/crispaliz/hidrologia-espam/blob/main/notebooks/P2_ficha_capitulo2.ipynb) |
+
+Los pasos 2 a 5 repiten, sin gráficos, los cálculos de los pasos anteriores (Thiessen, Gumbel, CN), así que cada
+cuaderno funciona solo; usa la misma `CUENCA`, `USAR_MI_CUENCA` y `RADIO_KM` en todos. El paso 4 necesita tu
+tiempo de concentración del capítulo 1.
 
 ## El expediente de tu cuenca
 
@@ -50,7 +59,7 @@ El cuaderno de cierre de cada unidad los une en **`expediente_<cuenca>_<estudian
 | Capítulo | Unidad | Qué añade al expediente |
 |---|---|---|
 | 1 | I · Hidrometría | Morfometría, estación de referencia, aforo, curva de gasto y curva de duración |
-| 2 | II · Precipitación y escorrentía | Precipitación media, lluvia de diseño, número de curva |
+| 2 | II · Precipitación y escorrentía | Precipitación media, lluvia de diseño, número de curva, caudal pico y balance hídrico |
 | 3 | III · Modelación | Eventos simulados en HEC-HMS y su desempeño |
 | 4 | IV · Agua subterránea | Flujo base y parámetros del acuífero |
 

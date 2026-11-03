@@ -1,0 +1,72 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><style>
+@page{size:A4;margin:14mm 14mm 12mm}
+body{font-family:"IBM Plex Sans",Arial,sans-serif;color:#12263A;font-size:10.2pt;margin:0}
+h1{font-family:"Source Serif 4",Georgia,serif;font-size:17pt;margin:0 0 2mm}
+h2{font-size:10.5pt;margin:3mm 0 1.2mm;color:#1F6F8B;text-transform:uppercase;letter-spacing:.5px}
+.sub{color:#44525E;font-size:9pt;margin-bottom:3mm}
+.id{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3mm;margin-bottom:2mm}
+.id div{border-bottom:1px solid #12263A;padding:4mm 0 1mm;font-size:8.5pt;color:#5B6B78}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #9AA6AF;padding:1.2mm 2mm;vertical-align:middle}
+th{background:#EEF2F4;font-weight:600;font-size:9pt;text-align:left}
+.f{font-family:"Cambria Math",Georgia,serif;white-space:nowrap}
+.blank{min-width:22mm}
+.c td{height:6.6mm}
+.note{font-size:8.5pt;color:#44525E;margin-top:1.5mm}
+.page{page-break-after:always}
+.grid{height:112mm;border:1px solid #12263A;margin-top:2mm;
+ background-image:linear-gradient(#D9D3C4 1px,transparent 1px),linear-gradient(90deg,#D9D3C4 1px,transparent 1px),
+ linear-gradient(#B9B2A2 1px,transparent 1px),linear-gradient(90deg,#B9B2A2 1px,transparent 1px);
+ background-size:5mm 5mm,5mm 5mm,25mm 25mm,25mm 25mm}
+.q td{height:15mm;vertical-align:top}
+.foot{margin-top:3mm;font-size:7.5pt;color:#5B6B78}
+</style></head><body>
+<div class="page">
+<h1>Hoja de cálculo · Caudal pico e hidrograma triangular</h1>
+<div class="sub">Hidrología (1CIA-502) · Ingeniería Ambiental · ESPAM MFL · Práctica 2, paso 4 · Se resuelve a mano, con calculadora. Escribe las unidades en cada resultado.</div>
+<div class="id"><div>Estudiante</div><div>Cuenca</div><div>Fecha</div></div>
+
+<h2>1 · Datos de tu cuenca</h2>
+<table><tr><th>Dato</th><th>Símbolo</th><th>Valor</th><th>Unidad</th><th>De dónde sale</th></tr>
+<tr class="c"><td>Área</td><td>A</td><td class="blank"></td><td>km²</td><td>Capítulo 1 o paso 1</td></tr>
+<tr class="c"><td>Tiempo de concentración (Kirpich)</td><td>t<sub>c</sub></td><td></td><td>h</td><td>Capítulo 1, apartado 1.3</td></tr>
+<tr class="c"><td>Número de curva ponderado (AMC II)</td><td>CN</td><td></td><td>—</td><td>Paso 3</td></tr>
+<tr class="c"><td>Lluvia de 24 h, T = 10 · 25 · 100 años</td><td>P<sub>24</sub></td><td></td><td>mm</td><td>Paso 2</td></tr></table>
+
+<h2>2 · Tiempos del hidrograma (una vez)</h2>
+<table><tr><th>Paso</th><th>Fórmula</th><th>Sustitución</th><th>Resultado</th></tr>
+<tr class="c"><td>Duración de la lluvia en exceso</td><td class="f">d<sub>e</sub> = 2·√t<sub>c</sub></td><td></td><td class="blank"></td></tr>
+<tr class="c"><td>Tiempo al pico</td><td class="f">t<sub>p</sub> = d<sub>e</sub>/2 + 0,6·t<sub>c</sub></td><td></td><td></td></tr>
+<tr class="c"><td>Tiempo base</td><td class="f">t<sub>b</sub> = 2,67·t<sub>p</sub></td><td></td><td></td></tr>
+<tr class="c"><td>Retención potencial</td><td class="f">S = 25 400/CN − 254</td><td></td><td></td></tr>
+<tr class="c"><td>Abstracción inicial</td><td class="f">I<sub>a</sub> = 0,2·S</td><td></td><td></td></tr></table>
+
+<h2>3 · Caudal pico para cada periodo de retorno</h2>
+<table><tr><th style="width:44%">Paso · fórmula</th><th>T = 10 años</th><th>T = 25 años</th><th>T = 100 años</th></tr>
+<tr class="c"><td>P<sub>24</sub> (mm)</td><td></td><td></td><td></td></tr>
+<tr class="c"><td>Lluvia de duración d<sub>e</sub> <span class="f">P<sub>de</sub> = P<sub>24</sub>·(d<sub>e</sub>·60/1440)<sup>0,25</sup></span></td><td></td><td></td><td></td></tr>
+<tr class="c"><td><span class="f">P<sub>de</sub> − I<sub>a</sub></span> (mm)</td><td></td><td></td><td></td></tr>
+<tr class="c"><td>Lluvia efectiva <span class="f">P<sub>e</sub> = (P<sub>de</sub> − I<sub>a</sub>)² / (P<sub>de</sub> − I<sub>a</sub> + S)</span></td><td></td><td></td><td></td></tr>
+<tr class="c"><td>Caudal pico <span class="f">Q<sub>p</sub> = 0,208·A·P<sub>e</sub> / t<sub>p</sub></span> (m³/s)</td><td></td><td></td><td></td></tr>
+<tr class="c"><td>Volumen escurrido <span class="f">V = P<sub>e</sub>·A·1000</span> (m³)</td><td></td><td></td><td></td></tr>
+<tr class="c"><td>Verificación <span class="f">½·Q<sub>p</sub>·t<sub>b</sub>·3600</span> (m³) ≈ V</td><td></td><td></td><td></td></tr></table>
+<div class="note">Si P<sub>de</sub> ≤ I<sub>a</sub>, entonces P<sub>e</sub> = 0. Unidades del 0,208: A en km², P<sub>e</sub> en mm, t<sub>p</sub> en h → Q<sub>p</sub> en m³/s. La verificación del volumen debe coincidir con un margen de 2 %; si no, revisa las unidades.</div>
+<div class="foot">Hidrología · 1CIA-502 · ESPAM MFL · © 2026 Cristian Paliz Acosta · CC BY-NC-SA 4.0 · github.com/crispaliz/hidrologia-espam</div>
+</div>
+
+<div>
+<h1>Dibujo de los hidrogramas triangulares</h1>
+<div class="sub">Dibuja los tres triángulos en la misma gráfica: (0, 0) → (t<sub>p</sub>, Q<sub>p</sub>) → (t<sub>b</sub>, 0). Elige la escala para que el triángulo de 100 años ocupe casi todo el alto. Rotula los ejes con unidades y cada triángulo con su T.</div>
+<div style="font-size:9pt">Escala horizontal: 1 cuadro grande = ______ h &nbsp;&nbsp;&nbsp; Escala vertical: 1 cuadro grande = ______ m³/s</div>
+<div class="grid"></div>
+
+<h2>4 · Preguntas (responde en una o dos líneas, con números)</h2>
+<table class="q">
+<tr><td>a) ¿Cuántas veces el Q<sub>p</sub> de 10 años es el de 100 años? ¿Y la lluvia P<sub>24</sub>? ¿Por qué el caudal crece más que la lluvia?</td></tr>
+<tr><td>b) Si la cuenca estuviera saturada (AMC III, CN<sub>III</sub> = 23·CN / (10 + 0,13·CN)), ¿cuánto sería Q<sub>p</sub> de 25 años?</td></tr>
+<tr><td>c) ¿Cuántas horas después de iniciada la lluvia en exceso llega el pico a la salida? ¿Qué harías con ese tiempo en una alerta temprana?</td></tr>
+</table>
+<div class="note">Revisión: escribe t<sub>p</sub> y Q<sub>p</sub> de cada T en la celda 1 del cuaderno P2_paso4_hidrograma_triangular.ipynb. El cuaderno acepta una diferencia de hasta 5 %.</div>
+<div class="foot">Hidrología · 1CIA-502 · ESPAM MFL · © 2026 Cristian Paliz Acosta · CC BY-NC-SA 4.0 · github.com/crispaliz/hidrologia-espam</div>
+</div>
+</body></html>

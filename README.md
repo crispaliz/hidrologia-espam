@@ -31,7 +31,7 @@ el cuaderno va a calcular, y al final explica la diferencia.
 | Práctica | Tema | Produce | Cuaderno |
 |---|---|---|---|
 | 1 · paso 2 | Delimitación desde el MDE, tabla morfométrica y ficha de la estación | `expediente_P2_….csv`, figuras `P2_…` | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/crispaliz/hidrologia-espam/blob/main/notebooks/P1_paso2_delimitacion_morfometria.ipynb) |
-| 1 · paso 3 | Curva de gasto, serie de caudal y curva de duración | `expediente_P3_….csv`, figuras `P3_…` | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/crispaliz/hidrologia-espam/blob/main/notebooks/P1_paso3_curvas.ipynb) |
+| 1 · paso 3 | Curva de gasto con datos del INAMHI, caudal observado, GEOGloWS corregido y curva de duración de tu cuenca | `expediente_P3_….csv`, figuras `P3_…` | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/crispaliz/hidrologia-espam/blob/main/notebooks/P1_paso3_curvas.ipynb) |
 | 1 · cierre | Ficha de síntesis del capítulo 1 y expediente de la cuenca | `expediente_<cuenca>_<estudiante>.csv`, ficha en PNG y PDF | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/crispaliz/hidrologia-espam/blob/main/notebooks/P1_ficha_capitulo1.ipynb) |
 
 El aforo con flotadores (21 de octubre) se calcula a mano en la hoja de campo y se copia en la celda 1 del cuaderno de cierre.
@@ -53,14 +53,12 @@ Los expedientes del curso forman el *Compendio hidrológico de cuencas de Manab�
 
 ## Datos del curso
 
-- `datos/aforos_ejemplo.csv` y `datos/niveles_diarios_ejemplo.csv`: datos **ilustrativos** para el paso 3.
-  No son de ninguna cuenca; si los usas, decláralo. Si tienes datos de una estación del INAMHI,
-  pon `USAR_MIS_DATOS = True` y sube tus CSV con las mismas columnas.
-- Relieve, cuencas, cauces y estaciones: [datos-manabi](https://github.com/crispaliz/datos-manabi).
-
-## Cuencas disponibles
-
-Ayampe · Carrizal · Chone · Jama · Jipijapa · Portoviejo
+- **Caudales de Manabí** (los usa el paso 3): observados de las estaciones del INAMHI (anuarios hidrológicos
+  1993–2013), simulación de GEOGloWS 1980–2023 y su versión corregida, y curvas de gasto por estación, en
+  [datos-manabi/caudales](https://github.com/crispaliz/datos-manabi/tree/main/caudales).
+- Relieve, cuencas, cauces y estaciones de lluvia: [datos-manabi](https://github.com/crispaliz/datos-manabi).
+- `datos/aforos_ejemplo.csv` y `datos/niveles_diarios_ejemplo.csv`: datos **ilustrativos** para el ejercicio
+  de clase de la curva de gasto (sesión del 27 de octubre). No son de ninguna cuenca.
 
 ---
 

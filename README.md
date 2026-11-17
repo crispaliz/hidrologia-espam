@@ -48,7 +48,7 @@ El aforo con flotadores (21 de octubre) se calcula a mano en la hoja de campo y 
 | Cierre | Ficha de síntesis del capítulo 2 y expediente acumulado de la cuenca | `expediente_<cuenca>_<estudiante>.csv`, ficha PDF | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/crispaliz/hidrologia-espam/blob/main/notebooks/P2_ficha_capitulo2.ipynb) |
 
 Los pasos 2 a 5 repiten, sin gráficos, los cálculos de los pasos anteriores (Thiessen, Gumbel, CN), así que cada
-cuaderno funciona solo; usa la misma `CUENCA`, `USAR_MI_CUENCA` y `RADIO_KM` en todos. El paso 4 necesita tu
+cuaderno funciona solo; usa la misma `CUENCA`, `USAR_MI_CUENCA` y `RADIO_KM` en todos. Todo se calcula sobre la **cuenca de trabajo de la Unidad I**: con `USAR_MI_CUENCA = True` (valor por defecto) el cuaderno pide subir el `.gpkg` del paso 2 de la Práctica 1, y `CUENCA` es la cuenca oficial que la contiene. El paso 4 necesita tu
 tiempo de concentración del capítulo 1.
 
 ## El expediente de tu cuenca

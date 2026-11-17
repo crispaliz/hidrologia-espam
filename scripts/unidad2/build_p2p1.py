@@ -33,17 +33,17 @@ el cuaderno la calcule.
 
 md(r"""
 ## 1 · CONFIGURACIÓN ✍️ (única celda que editas)
-- **CUENCA:** la misma del capítulo 1.
-- **USAR_MI_CUENCA:** `True` para subir tu `cuenca_<cuenca>_<estudiante>.gpkg` del paso 2 de la Práctica 1
-  (está en su ZIP). Así trabajas tu cuenca o subcuenca exacta. `False` usa el límite oficial.
+- **Tu cuenca de trabajo es la de la Unidad I.** Con `USAR_MI_CUENCA = True` el cuaderno te pide subir el
+  `cuenca_<cuenca>_<estudiante>.gpkg` del paso 2 de la Práctica 1 (está en su ZIP): todo se calcula sobre ese límite.
+- **CUENCA:** la cuenca oficial de Manabí que contiene tu cuenca de trabajo (la misma del capítulo 1).
 - **RADIO_KM:** estaciones vecinas que entran a Thiessen e isoyetas (fuera de la cuenca también informan).
 - **P_MEDIA_MANO:** tu media aritmética calculada a mano en la sección 4 (mm/año).
 - **INTERVALO_ISOYETAS:** separación entre isoyetas (mm).
 """)
 code(r"""
 ESTUDIANTE = "Apellidos Nombres"
-CUENCA     = "Carrizal"      # Ayampe · Carrizal · Chone · Jama · Jipijapa · Portoviejo
-USAR_MI_CUENCA = False
+CUENCA     = "Carrizal"      # cuenca oficial que contiene tu cuenca de trabajo: Ayampe · Carrizal · Chone · Jama · Jipijapa · Portoviejo
+USAR_MI_CUENCA = True        # tu cuenca de trabajo de la Unidad I: se sube su .gpkg (Práctica 1, paso 2)
 RADIO_KM   = 20
 P_MEDIA_MANO = None          # mm/año, después de la sección 4
 INTERVALO_ISOYETAS = 200     # mm
@@ -61,14 +61,26 @@ SLUG = unicodedata.normalize("NFKD", ESTUDIANTE).encode("ascii", "ignore").decod
 os.makedirs("salidas", exist_ok=True)
 EST = pd.read_csv(f"{DATOS}/precipitacion/estaciones_lluvia_diaria.csv")
 LL  = pd.read_csv(f"{DATOS}/precipitacion/lluvia_diaria_1964_2018.csv", parse_dates=["fecha"], index_col="fecha")
+UNIR = lambda g: g.union_all() if hasattr(g, "union_all") else g.unary_union   # compatible con geopandas < 1.0
+OFICIAL = gpd.read_file(f"{DATOS}/cuencas_oficiales.geojson").query("cuenca == @CUENCA").to_crs(32717)
 if USAR_MI_CUENCA:
-    from google.colab import files
-    print("Sube tu cuenca_<cuenca>_<estudiante>.gpkg del paso 2:"); up = files.upload()
-    nombre = list(up)[0]; open(nombre, "wb").write(up[nombre])
+    try:
+        from google.colab import files
+        print("Sube el GeoPackage de tu cuenca de trabajo (cuenca_<cuenca>_<estudiante>.gpkg, ZIP de la Práctica 1, paso 2):")
+        up = files.upload()
+    except ImportError:
+        up = {}
+    gp = [n for n in up if n.lower().endswith(".gpkg")]
+    if not gp:
+        raise ValueError("No subiste el .gpkg de tu cuenca de trabajo. Está en el ZIP del paso 2 de la Práctica 1.")
+    nombre = gp[0]; open(nombre, "wb").write(up[nombre])
     cuenca = gpd.read_file(nombre, layer="cuenca").to_crs(32717)
 else:
-    cuenca = gpd.read_file(f"{DATOS}/cuencas_oficiales.geojson").query("cuenca == @CUENCA").to_crs(32717)
-CU = cuenca.union_all() if hasattr(cuenca, "union_all") else cuenca.unary_union   # compatible con geopandas < 1.0
+    print("⚠️  USAR_MI_CUENCA = False: usas el límite oficial, no tu cuenca de trabajo de la Unidad I.")
+    cuenca = OFICIAL
+CU = UNIR(cuenca)
+if USAR_MI_CUENCA and CU.intersection(UNIR(OFICIAL)).area / CU.area < 0.9:
+    print(f"⚠️  Tu cuenca de trabajo no está dentro de la cuenca oficial {CUENCA}: revisa CUENCA en la celda 1.")
 A_km2 = CU.area / 1e6
 LL = LL.loc[f"{PERIODO[0]}-01-01":f"{PERIODO[1]}-12-31"]
 NA = PERIODO[1] - PERIODO[0] + 1

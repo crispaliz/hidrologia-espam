@@ -31,6 +31,7 @@ antes de que el cuaderno ajuste la distribución.
 md(r"""
 ## 1 · CONFIGURACIÓN ✍️ (única celda que editas)
 - **CUENCA, USAR_MI_CUENCA, RADIO_KM:** los mismos del paso 1, para que los pesos de Thiessen coincidan.
+- **Tu cuenca de trabajo es la de la Unidad I:** con `USAR_MI_CUENCA = True` subes su `.gpkg` (Práctica 1, paso 2).
 - **P10_MANO:** tu P₁₀ diaria calculada a mano en la sección 5 (mm).
 - **T_DISENO:** periodos de retorno que pide la práctica.
 """)

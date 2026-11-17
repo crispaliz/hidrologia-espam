@@ -31,6 +31,7 @@ En periodos largos el almacenamiento (ΔS: suelo, acuífero, embalse) casi no ca
 md(r"""
 ## 1 · CONFIGURACIÓN ✍️ (única celda que editas)
 - **CUENCA, USAR_MI_CUENCA, RADIO_KM:** los mismos de los pasos anteriores.
+- **Tu cuenca de trabajo es la de la Unidad I:** con `USAR_MI_CUENCA = True` subes su `.gpkg` (Práctica 1, paso 2).
 - **ESTACION_Q:** estación de caudal (None = la del paso 3 de la Práctica 1).
 - **C_MANO:** tu coeficiente de escorrentía medio calculado a mano en la sección 4.
 - **SUBIR_BITACORA:** `True` para subir tu bitácora de El Niño (CSV con columnas `fecha, fuente, variable, valor, observacion`).

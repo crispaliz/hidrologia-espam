@@ -50,8 +50,8 @@ El 0,208 sale de unidades: 1 mm sobre 1 km² en 1 hora, con la forma del triáng
 md(r"""
 ## 1 · CONFIGURACIÓN ✍️ (única celda que editas)
 - **TC_H:** tu **tiempo de concentración (Kirpich)** del capítulo 1, en horas (expediente_P2, apartado 1.3). Obligatorio.
-- **CUENCA, USAR_MI_CUENCA, RADIO_KM:** los mismos de los pasos anteriores. Si en el capítulo 1 trabajaste tu
-  propia cuenca o subcuenca, usa `USAR_MI_CUENCA = True` para que el área y el tc sean de la misma cuenca.
+- **CUENCA, USAR_MI_CUENCA, RADIO_KM:** los mismos de los pasos anteriores. Con `USAR_MI_CUENCA = True` subes el
+  `.gpkg` de tu cuenca de trabajo de la Unidad I, para que el área y el tc sean de la misma cuenca.
 - **Valores a mano** (de tu hoja): `TP_MANO` y el caudal pico de cada T en `QP_MANO`.
 - **ESTACION_Q:** estación de caudal para la comparación 3 (None = la del paso 3 de la Práctica 1).
 """)

@@ -28,6 +28,7 @@ Lo que queda y escurre por la superficie es la **lluvia efectiva** (Pe). Este cu
 md(r"""
 ## 1 · CONFIGURACIÓN ✍️ (única celda que editas)
 - **CUENCA, USAR_MI_CUENCA, RADIO_KM:** los mismos de los pasos 1 y 2.
+- **Tu cuenca de trabajo es la de la Unidad I:** con `USAR_MI_CUENCA = True` subes su `.gpkg` (Práctica 1, paso 2).
 - **CN_MANO:** tu CN ponderado calculado a mano en la sección 6.
 - **PE25_MANO:** tu lluvia efectiva de 25 años calculada a mano en la sección 7 (mm).
 - **LAMBDA:** fracción de la abstracción inicial, Ia = λ·S. El método clásico usa 0,2.
